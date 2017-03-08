@@ -1,0 +1,7 @@
+# Ingore python cache files
+*.pyc
+
+# Ignore all virtual environment files
+ve_submission_app/*
+
+*staticfiles/*

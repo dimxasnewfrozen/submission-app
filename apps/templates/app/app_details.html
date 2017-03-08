@@ -1,0 +1,54 @@
+{% extends "app_base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="row-fluid">
+  <div class="col-12 col-sm-12 col-md-12 ">
+      <div class="bs-component">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h4 class="app_label">{{app.name}}</h4>
+
+          <div class="pull-right">
+            <p><small><i class="fa fa-clock-o" aria-hidden="true"></i> Date Created: {{ app.date_created }} </small></p>
+          </div>
+
+          <div class="app_social_items">
+            <span><i class="fa fa-thumbs-up" aria-hidden="true"></i> 123 likes</span>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="row">
+
+            <div class="col-xs-12 col-md-3 app_buttons">
+              <a href="#" class="col-md-12"><img class="media-object" src="{{ app.thumbnail_url }}" alt="..." width="100%"></a>
+
+              <a href="{{ app.url }}" class="btn btn-primary col-md-12" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i> View App</a>
+              <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-code" aria-hidden="true"></i> Github </a>
+              <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like App</a>
+            </div>
+
+            <div class="col-md-9">
+
+              <div class="app_content">
+                <p><b>Description</b></p>
+                {{ app.description }}
+              </div>
+
+              <div class="app_content">
+                <b><p>Size of Team:</p></b>
+                <p><img src="{{ user_icon }}" /> 5</p>
+              </div>
+
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

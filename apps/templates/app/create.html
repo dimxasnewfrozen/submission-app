@@ -1,0 +1,165 @@
+{% extends "public_base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row">
+    <!-- LEFT SIDEBAR -->
+  <div class="col-md-4">
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="bs-component">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="app_label">API Challenge Info </h4>
+            </div>
+              <div class="panel-body">
+                <p>FEBRUARY 27 - MARCH 24</p>
+
+                <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
+
+                <p>Register by yourself or with a team of up to 4 for the API Challenge by creating a piece of software that uses Vainglory data. The contest starts on February 27th, and will run until March 24th at 11:59 PM EST. A grand prize winner for best overall app will be crowned, along with the top two most impressive entries for each category. You can enter as many apps as you’d like; you just need to fill a separate submission for each one.</p>
+
+                <a href="https://developer.vainglorygame.com/rules" target="_blank">[Read More]</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="bs-component">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="app_label">Vainglory Community </h4>
+            </div>
+
+              <div class="panel-body">
+                  <p>Want to keep track of what's happening in the developer community? Check out the below links to experience a community like no other.</p>
+                  <div class="col-md-12 app_buttons">
+                    <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+                    <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-commenting-o" aria-hidden="true"></i> Discord </a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="col-lg-8 col-md-8">
+    <div class="bs-component">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="app_label">Submit Application Info </h4>
+        </div>
+          <div class="panel-body">
+            <!-- Alert message -->
+            <div class="alert hidden" id="form_message" role="alert"></div>
+
+            <form method="post">
+              {% csrf_token %}
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="app_name">First name *</label>
+                    {{ form.first_name|add_class:"form-control" }}
+                    <p class="help-block"></p>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="app_name">Last name *</label>
+                    {{ form.last_name|add_class:"form-control" }}
+                    <p class="help-block"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="app_name">Your email *</label>
+                {{ form.email_address|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <label for="app_name">Application name *</label>
+                {{ form.name|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="app_url">Application URL *</label>
+                {{ form.app_url|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>   
+              
+              <div class="form-group">
+                <label for="app_url">Github URL</label>
+                {{ form.code_url|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>   
+
+              <div class="form-group">
+                <label for="description">Application description *</label>
+                {{ form.description|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Image thumbnail url</label>
+                {{ form.thumbnail_url|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <hr/>
+
+              <div class="form-group">
+                <label for="app_name">Team member 1's email</label>
+                {{ form.member1|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="app_name">Team member 2's email</label>
+                {{ form.member2|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="app_name">Team member 3's email</label>
+                {{ form.member3|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="app_name">Team member 4's email</label>
+                {{ form.member4|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="app_name">Team member 5's email</label>
+                {{ form.member5|add_class:"form-control" }}
+                <p class="help-block"></p>
+              </div>
+
+              <p>You will only be able to submit your application <b>once</b>. This information will <b>not</b> be editable once it has been submitted.</p>
+
+              <button type="submit" class="btn btn-lg btn-primary">Submit Application</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}

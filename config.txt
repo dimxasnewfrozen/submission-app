@@ -1,0 +1,6 @@
+[databases]
+NAME=submissions_app
+HOST=localhost
+ENGINE=django.db.backends.mysql
+USER=root
+password=
