@@ -25,5 +25,5 @@
 	python manage.py loaddata app_type
 	python manage.py loaddata game
 
-### Start test app server
-	python manage.py runserver
+### Start gunicorn
+	./start.sh
