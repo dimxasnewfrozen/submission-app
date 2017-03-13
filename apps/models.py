@@ -15,8 +15,6 @@ class Submission(models.Model):
 	member1 = models.CharField(max_length=255, blank=True, null=True)
 	member2 = models.CharField(max_length=255, blank=True, null=True)
 	member3 = models.CharField(max_length=255, blank=True, null=True)
-	member4 = models.CharField(max_length=255, blank=True, null=True)
-	member5 = models.CharField(max_length=255, blank=True, null=True)
 	last_update = models.DateTimeField(blank=True, null=True)
 	date_created = models.DateTimeField(blank=True, null=True)
 

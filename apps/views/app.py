@@ -19,7 +19,7 @@ def submit_app(request):
 			email_address = app_form.cleaned_data['email_address']
 
 			try:
-				submission = Submission.objects.filter(email_address=email_address)
+				submission = Submission.objects.get(email_address=email_address)
 				messages.warning(request, "An application has already been submitted for this email address!")
 				return redirect('submit-app')
 			except:

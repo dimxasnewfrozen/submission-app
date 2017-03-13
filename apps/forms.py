@@ -22,9 +22,7 @@ class SubmitAppForm(forms.ModelForm):
 			        'email_address',
 			        'member1',
 			        'member2',
-			        'member3',
-			        'member4',
-			        'member5'
+			        'member3'
 			    ]
 
         widgets = {
