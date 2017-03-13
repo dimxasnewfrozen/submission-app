@@ -2,8 +2,11 @@ from django import forms
 from django.utils import timezone
 from django.forms import ModelForm, Textarea
 from .models import *
+from submissions_app import validate
 
 class SubmitAppForm(forms.ModelForm):
+
+    email_address = forms.CharField(label="email_address", required=False, validators = [validate.validate_form_email])
 
     class Meta:
         model = Submission
@@ -32,9 +35,12 @@ class SubmitAppForm(forms.ModelForm):
         super(SubmitAppForm, self).__init__(*args, **kwargs)
 
     def save(self, commit=True):
+
         app = super(SubmitAppForm, self).save(commit=False)
+
         app.date_created = timezone.now()
         app.last_update = timezone.now()
+
         if commit:
             app.save()
         return app

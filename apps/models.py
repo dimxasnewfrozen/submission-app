@@ -5,8 +5,8 @@ from django.db import models
 class Submission(models.Model):
 	id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=155, null=False)
-	app_url = models.CharField(max_length=255, null=False)
-	code_url = models.CharField(max_length=255, null=False)
+	app_url = models.CharField(max_length=255, blank=True, null=False)
+	code_url = models.CharField(max_length=255, blank=False, null=False)
 	thumbnail_url = models.CharField(max_length=255, blank=True, null=False)
 	description = models.CharField(max_length=2000, null=False)
 	first_name = models.CharField(max_length=255, null=False)
