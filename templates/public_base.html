@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="http://jd3sljkvzi-flywheel.netdna-ssl.com/wp-content/themes/vainglory/images/favicon.ico">
 
     <title>Legendary Applications and Creative Content powered by Gamelocker</title>
 
     <link href="{% static "assets/css/bootstrap.css" %}" rel="stylesheet">
-    <link href="{% static "assets/css/bootstrap-custom.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/base.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/style.css" %}" rel="stylesheet">
     <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -28,37 +28,60 @@
 
   <body>
 
+      <div class="vg-nav top-bar">
+      <div class="top-bar-title">
+          <span data-responsive-toggle="responsive-menu" data-hide-for="medium" style="display: none;">
+            <button class="menu-icon" type="button" data-toggle=""></button>
+          </span>
+          <a class="header-link home-link" href="/">
+            <img alt="VG Developer Portal" width="140px" src="{% static "/assets/img/vg-developer-logo.png" %}">
+          </a>  
+      </div>
+
+      <div id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li>
+              <a class="header-link" target="_blank" href="https://developer.vainglorygame.com/docs">GUIDES</a>
+            </li>
+            <li>
+              <a class="header-link" href="https://developer.vainglorygame.com/rules">2017 API Challenge</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-container">
       <section class="hero">
-        <h2>Ongoing: Vainglory API Challenge</h2>
-        <a href="#" class="btn btn-primary">View Details</a>
-        <a href="#" class="btn btn-primary">Browse Submissions</a>
+        <h2>Vainglory API Challenge Submission Page</h2>
+        <a href="https://developer.vainglorygame.com/rules" class="btn btn-primary">More Details</a>
       </section>
     </div>
 
-    <div class="container">
-        {% block body %}
-          {% block content %}{% endblock %}
-        {% endblock %}
+      <div class="container">
+          {% block body %}
+            {% block content %}{% endblock %}
+          {% endblock %}
+      </div> <!-- END CONTAINER -->
 
-      <footer>
+      <footer class="footer">
         <div class="row">
-          <div class="col-lg-12">
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top">Back to top</a></li>
-              <li><a href="#" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Support</a></li>
-            </ul>
-            <p>Made by <a href="#" rel="nofollow">Madglory</a>. Contact us at <a href="#">info@madgloryint.com</a>.</p>
+          <div class="small-12 columns text-center">
+            <p class="copyright">
+              ©2016 Super Evil Megacorp. All rights reserved. Apple and Apple logo are trademarks of Apple Inc., registered in the US and other countries. Apple is a service mark of Apple Inc. Android™ is a trademark of Google Inc. Google Play™ is a trademark of Google Inc.
+            </p>
+            <div class="links">
+              <a href="https://developer.vainglorygame.com/" class="active">home</a>
+              <a href="https://developer.vainglorygame.com/docs" class="active">API Documentation(Preview)</a>
+              <a href="https://developer.vainglorygame.com/terms-of-service" class="active">Terms of Service</a>
+              <a href="https://developer.vainglorygame.com/privacy-policy" class="active">Privacy Policy</a>
+              <a href="https://developer.vainglorygame.com/faq" class="active">FAQ</a>
+              <a href="" class="disabled">SDKs (COMING SOON!)</a>
+            </div>
           </div>
         </div>
-
       </footer>
-
-
-    </div> <!-- END CONTAINER -->
 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
