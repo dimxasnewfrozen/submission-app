@@ -1,2 +1,2 @@
-web: gunicorn apps_gamelocker.wsgi --log-file -
+web: gunicorn submissions_app.wsgi --log-file -
 heroku ps:scale web=1
