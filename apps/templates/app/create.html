@@ -2,44 +2,21 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="row-fluid">
+<div class="row-fluid submission_container">
   <!-- LEFT SIDEBAR -->
   <div class="col-md-4">
-
     <div class="row-fluid">
       <div class="col-md-12">
           <div class="bs-component">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="app_label">API Challenge Info </h4>
-            </div>
               <div class="panel-body">
-                <p>FEBRUARY 27 - MARCH 24</p>
 
-                <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
-
-                <p>Register by yourself or with a team of up to 4 for the API Challenge by creating a piece of software that uses Vainglory data. The contest starts on February 27th, and will run until March 24th at 11:59 PM EST. A grand prize winner for best overall app will be crowned, along with the top two most impressive entries for each category. You can enter as many apps as you’d like; you just need to fill a separate submission for each one.</p>
-
-                <a href="https://developer.vainglorygame.com/rules" target="_blank">[Read More]</a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row-fluid">
-      <div class="col-md-12">
-          <div class="bs-component">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="app_label">Vainglory Community </h4>
-            </div>
-
-              <div class="panel-body">
-                  <p>Want to keep track of what's happening in the developer community? Check out the below links to experience a community like no other.</p>
+                  <h4 class="app_label">API Challenge Info </h4>
+              
+                  <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
                   <div class="col-md-12 app_buttons">
-                    <!--<a href="#" class="btn btn-primary col-md-12"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>-->
-                    <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"><i class="fa fa-commenting-o" aria-hidden="true"></i> Discord </a>
+                    <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Rules </a>
+                    <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Discord </a>
                   </div>
               </div>
           </div>
@@ -49,112 +26,112 @@
   </div>
 
   <!-- RIGHT CONTENT -->
-  <div class="col-lg-8 col-md-8">
-    <h4 style="text-transform: uppercase;">Submit your appliction!</h4>
+  <div class="col-lg-8 col-md-8 submission_form">
 
-            {% if messages %}
-            <div class="alert alert-accent alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
+        <h4 class="submission_form_headline">Submit your appliction!</h4>
+
+        {% if messages %}
+        <div class="alert alert-accent alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <p>You will only be able to submit your application once. This information will not be editable after it has been submitted. If you run into a problem, email <a href="mailto:api@superevilmegacorp.com">api@superevilmegacorp.com</a></p>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="app_name">First name *</label>
+              {{ form.first_name|add_class:"form-control" }}
             </div>
-            {% endif %}
 
-            <form method="post">
-              {% csrf_token %}
-
-              <div class="row-fluid">
-                <div class="col-md-6">
-                  <label for="app_name">First name *</label>
-                  {{ form.first_name|add_class:"form-control" }}
-                </div>
-
-                <div class="col-md-6">
-                  <label for="app_name">Last name *</label>
-                  {{ form.last_name|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_name">Your email *</label>
-                  {% if form.email_address.errors %}
-                  {{ form.email_address|add_class:"form-control error-border"}}
-                  {{ form.email_address.errors }}
-                  {% else %}
-                  {{ form.email_address|add_class:"form-control"}}
-                  {% endif %}
-                </div>
-              </div>
-
-              <hr>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_name">Application name *</label>
-                {{ form.name|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_url">Application URL</label>
-                {{ form.app_url|add_class:"form-control" }}
-                </div>
-              </div>   
-              
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_url">Github URL *</label>
-                {{ form.code_url|add_class:"form-control" }}
-                </div>
-              </div>   
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="description">Application description *</label>
-                {{ form.description|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="description">Image thumbnail url</label>
-                {{ form.thumbnail_url|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <p>Add additional team members to your application submission. </p>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_name">Team member 1's email</label>
-                {{ form.member1|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_name">Team member 2's email</label>
-                {{ form.member2|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <div class="row-fluid">
-                <div class="col-md-12">
-                <label for="app_name">Team member 3's email</label>
-                {{ form.member3|add_class:"form-control" }}
-                </div>
-              </div>
-
-              <p>You will only be able to submit your application <b>once</b>. This information will <b>not</b> be editable once it has been submitted.</p>
-
-              <button type="submit" class="btn btn-lg btn-primary">Submit Application</button>
-
-            </form>
+            <div class="col-md-6">
+              <label for="app_name">Last name *</label>
+              {{ form.last_name|add_class:"form-control" }}
+            </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Your email *</label>
+              {% if form.email_address.errors %}
+              {{ form.email_address|add_class:"form-control error-border"}}
+              {{ form.email_address.errors }}
+              {% else %}
+              {{ form.email_address|add_class:"form-control"}}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row"><div class="col-md-12"><hr/></div></div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Application name *</label>
+            {{ form.name|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_url">Application URL</label>
+            {{ form.app_url|add_class:"form-control" }}
+            </div>
+          </div>   
+          
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_url">Github URL *</label>
+            {{ form.code_url|add_class:"form-control" }}
+            </div>
+          </div>   
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="description">Application description *</label>
+            {{ form.description|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="description">Image thumbnail url</label>
+            {{ form.thumbnail_url|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <div class="row"><div class="col-md-12"><p>Add additional team members to your application submission. </p></div></div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Team member 1's email</label>
+            {{ form.member1|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Team member 2's email</label>
+            {{ form.member2|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Team member 3's email</label>
+            {{ form.member3|add_class:"form-control" }}
+            </div>
+          </div>
+
+          <button type="submit" class="submit btn btn-lg btn-primary">Submit Application</button>
+
+        </form>
+      </div>
 </div>
 
 

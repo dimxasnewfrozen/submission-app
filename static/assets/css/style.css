@@ -594,7 +594,9 @@ section.hero {
 
 .app_label
 {
-  margin-bottom: 0px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding-left:15px;
 }
 
 .app_social_items span
@@ -713,5 +715,31 @@ a.header-link {
 }
 .errorlist li {
     color: #eaa900;
+}
+
+.submission_container{
+    margin-top:25px;
+}
+
+.submission_form_headline{
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    padding-left:10px;
+}
+
+
+.submission_form_headline{
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.submission_form h4, p
+{
+    padding-left:15px;
+}
+
+.submit
+{
+    margin-left:15px;
 }
 
