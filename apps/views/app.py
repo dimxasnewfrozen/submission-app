@@ -15,23 +15,14 @@ def submit_app(request):
 
 		if app_form.is_valid():
 
-			# Get the email address from teh form
-			email_address = app_form.cleaned_data['email_address']
+			instance = app_form.save(commit=False)
 
-			try:
-				submission = Submission.objects.get(email_address=email_address)
-				messages.warning(request, "An application has already been submitted for this email address!")
-				return redirect('submit-app')
-			except:
-
-				instance = app_form.save(commit=False)
-
-				if instance:
-					instance.user = request.user
-					instance.save()
-					return redirect('success')
-				else:
-					messages.warning(request, "Application failed to submit. Make sure the email addresses are valid and you entered the required information.")
+			if instance:
+				instance.user = request.user
+				instance.save()
+				return redirect('success')
+			else:
+				messages.warning(request, "Application failed to submit. Make sure the email addresses are valid and you entered the required information.")
 
 			return redirect('submit-app')
 
