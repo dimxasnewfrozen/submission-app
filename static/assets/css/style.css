@@ -733,6 +733,12 @@ a.header-link {
     margin-bottom: 25px;
 }
 
+.submission_form label
+{
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
 .submission_form h4, p
 {
     padding-left:15px;
