@@ -15,7 +15,7 @@
               
                   <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
                   <div class="col-md-12 app_buttons">
-                    <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Rules </a>
+                    <a href="https://developer.vainglorygame.com/rules" class="btn btn-primary col-md-12"> Rules </a>
                     <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Discord </a>
                   </div>
               </div>
@@ -69,6 +69,13 @@
           </div>
 
           <div class="row"><div class="col-md-12"><hr/></div></div>
+
+          <div class="row">
+            <div class="col-md-12">
+            <label for="app_name">Application type *</label>
+            {{ form.app_type|add_class:"form-control" }}
+            </div>
+          </div>
 
           <div class="row">
             <div class="col-md-12">

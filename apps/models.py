@@ -5,6 +5,7 @@ from django.db import models
 class Submission(models.Model):
 	id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=155, null=False)
+	app_type = models.BigIntegerField(default=0)
 	app_url = models.CharField(max_length=255, blank=True, null=False)
 	code_url = models.CharField(max_length=255, blank=False, null=False)
 	thumbnail_url = models.CharField(max_length=255, blank=True, null=False)
@@ -15,6 +16,8 @@ class Submission(models.Model):
 	member1 = models.CharField(max_length=255, blank=True, null=True)
 	member2 = models.CharField(max_length=255, blank=True, null=True)
 	member3 = models.CharField(max_length=255, blank=True, null=True)
+	ip = models.CharField(max_length=255, blank=True, null=False)
+	session_id = models.CharField(max_length=255, blank=True, null=False)
 	last_update = models.DateTimeField(blank=True, null=True)
 	date_created = models.DateTimeField(blank=True, null=True)
 

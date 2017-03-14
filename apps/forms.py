@@ -4,9 +4,17 @@ from django.forms import ModelForm, Textarea
 from .models import *
 from submissions_app import validate
 
+"""
+The different types of applications
+"""
+app_type_choices = [(1,"Esports"),
+                    (2,"Community Related (ie: stats)"),
+                    (3,"For laughs and giggles")]
+
 class SubmitAppForm(forms.ModelForm):
 
     email_address = forms.CharField(label="email_address", required=False, validators = [validate.validate_form_email])
+    app_type = forms.ChoiceField(choices=app_type_choices, widget=forms.Select(attrs={'class': "form-control"}))
 
     class Meta:
         model = Submission
@@ -14,6 +22,7 @@ class SubmitAppForm(forms.ModelForm):
         fields = [
         			'name', 
 			        'app_url',
+                    'app_type',
 			        'description',
 			        'code_url',
 			        'thumbnail_url',

@@ -42,6 +42,10 @@ def submit_app(request):
 	context = {'form': app_form}
 	return render(request, 'app/create.html', context)
 
+def success(request):
+	return render(request, 'app/submit_success.html', {})
+
+
 def app_details(request, app_id):
 
 	"""
