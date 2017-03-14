@@ -29,8 +29,7 @@ def submit_app(request):
 				if instance:
 					instance.user = request.user
 					instance.save()
-
-					messages.success(request, "Thank you for submitting!")
+					return redirect('success')
 				else:
 					messages.warning(request, "Application failed to submit. Make sure the email addresses are valid and you entered the required information.")
 
