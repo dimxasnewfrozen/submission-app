@@ -168,7 +168,7 @@
 
           <div class="row-fluid">
             <div class="col-md-12">
-            <label for="comments">Additional Comments:</label>
+            <label for="comments">Additional Notes <span style="font-size:12px; text-transform:lowercase">(this is only visible to SEMC employees, and will not be shown publicly):</span></label>
               {% if form.comments.errors %}
               {{ form.comments|add_class:"form-control error-border standard_font"}}
               {{ form.comments.errors }}
