@@ -16,10 +16,9 @@ class Submission(models.Model):
 	member1 = models.CharField(max_length=255, blank=True, null=True)
 	member2 = models.CharField(max_length=255, blank=True, null=True)
 	member3 = models.CharField(max_length=255, blank=True, null=True)
-	ip = models.CharField(max_length=255, blank=True, null=False)
-	session_id = models.CharField(max_length=255, blank=True, null=False)
-	last_update = models.DateTimeField(blank=True, null=True)
-	date_created = models.DateTimeField(blank=True, null=True)
+	comments = models.CharField(max_length=2000, blank=True, null=True)
+	last_update = models.DateTimeField()
+	date_created = models.DateTimeField()
 
 	class Meta:
 		db_table = 'submission'

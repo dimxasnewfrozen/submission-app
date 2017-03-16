@@ -23,6 +23,7 @@ class SubmitAppForm(forms.ModelForm):
     thumbnail_url = forms.CharField(label="thumbnail_url", required=False, validators=[URLValidator()])
 
     description = forms.CharField(label="description", required=True, widget=forms.Textarea)
+    comments = forms.CharField(label="comments", widget=forms.Textarea)
 
     email_address = forms.CharField(label="email_address", required=True, validators = [validate.validate_form_email])
     member1 = forms.CharField(label="member1", required=False, validators = [validate.validate_form_email])
@@ -45,7 +46,8 @@ class SubmitAppForm(forms.ModelForm):
 			        'email_address',
 			        'member1',
 			        'member2',
-			        'member3'
+			        'member3',
+                    'comments'
 			    ]
 
         widgets = {
