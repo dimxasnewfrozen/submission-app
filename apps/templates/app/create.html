@@ -21,18 +21,26 @@
 
         <p><i>Submission closes on March 24th.</i></p>
 
-        <form method="post">
+        <form method="post" novalidate="novalidate">
           {% csrf_token %}
           <div class="row-fluid">
             <div class="col-md-6">
               <label for="app_name">First name *</label>
-              {{ form.first_name|add_class:"form-control" }}
-            </div>
+              {% if form.first_name.errors %}
+              {{ form.first_name|add_class:"form-control error-border"}}
+              {{ form.first_name.errors }}
+              {% else %}
+              {{ form.first_name|add_class:"form-control"}}
+              {% endif %}            </div>
 
             <div class="col-md-6">
               <label for="app_name">Last name *</label>
-              {{ form.last_name|add_class:"form-control" }}
-            </div>
+              {% if form.last_name.errors %}
+              {{ form.last_name|add_class:"form-control error-border"}}
+              {{ form.last_name.errors }}
+              {% else %}
+              {{ form.last_name|add_class:"form-control"}}
+              {% endif %}            </div>
           </div>
 
           <div class="row-fluid">
@@ -52,14 +60,24 @@
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_name">Application type *</label>
-            {{ form.app_type|add_class:"form-control" }}
+              {% if form.app_type.errors %}
+              {{ form.app_type|add_class:"form-control error-border"}}
+              {{ form.app_type.errors }}
+              {% else %}
+              {{ form.app_type|add_class:"form-control"}}
+              {% endif %}            
             </div>
           </div>
 
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_name">Application name *</label>
-            {{ form.name|add_class:"form-control" }}
+              {% if form.name.errors %}
+              {{ form.name|add_class:"form-control error-border"}}
+              {{ form.name.errors }}
+              {% else %}
+              {{ form.name|add_class:"form-control"}}
+              {% endif %}            
             </div>
           </div>
 
@@ -73,14 +91,24 @@
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_url">Github URL *</label>
-            {{ form.code_url|add_class:"form-control" }}
+              {% if form.code_url.errors %}
+              {{ form.code_url|add_class:"form-control error-border"}}
+              {{ form.code_url.errors }}
+              {% else %}
+              {{ form.code_url|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>   
 
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="description">Application description *</label>
-            {{ form.description|add_class:"form-control" }}
+              {% if form.description.errors %}
+              {{ form.description|add_class:"form-control error-border"}}
+              {{ form.description.errors }}
+              {% else %}
+              {{ form.description|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>
 

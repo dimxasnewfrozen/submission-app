@@ -13,10 +13,17 @@ app_type_choices = [(1,"Esports"),
 
 class SubmitAppForm(forms.ModelForm):
 
-    email_address = forms.CharField(label="email_address", required=False, validators = [validate.validate_form_email])
-    member1 = forms.CharField(label="member1", required=False, validators = [validate.validate_non_required_form_email])
-    member2 = forms.CharField(label="member2", required=False, validators = [validate.validate_non_required_form_email])
-    member3 = forms.CharField(label="member3", required=False, validators = [validate.validate_non_required_form_email])
+    first_name = forms.CharField(label="first_name", required=True)
+    last_name = forms.CharField(label="last_name", required=True)
+
+    name = forms.CharField(label="name", required=True)
+    code_url = forms.CharField(label="code_url", required=True)
+    description = forms.CharField(label="description", required=True, widget=forms.Textarea)
+
+    email_address = forms.CharField(label="email_address", required=True, validators = [validate.validate_form_email])
+    member1 = forms.CharField(label="member1", required=False, validators = [validate.validate_form_email])
+    member2 = forms.CharField(label="member2", required=False, validators = [validate.validate_form_email])
+    member3 = forms.CharField(label="member3", required=False, validators = [validate.validate_form_email])
     app_type = forms.ChoiceField(choices=app_type_choices, widget=forms.Select(attrs={'class': "form-control"}))
 
     class Meta:
@@ -43,6 +50,12 @@ class SubmitAppForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SubmitAppForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].error_messages['required'] = '* First name is required!'
+        self.fields['last_name'].error_messages['required'] = '* Last name is required!'
+        self.fields['email_address'].error_messages['required'] = '* Email address is required!'
+        self.fields['name'].error_messages['required'] = '* Application name is required!'
+        self.fields['description'].error_messages['required'] = '* Application description is required!'
+        self.fields['code_url'].error_messages['required'] = '* Github url is required!'
 
     def save(self, commit=True):
 

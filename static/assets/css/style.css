@@ -704,7 +704,7 @@ a.header-link {
 
 .error-border
 {
-    border:1px solid #eaa900;
+    border:1px solid #f4424e;
 }
 .errorlist{
     list-style: none;
@@ -714,7 +714,7 @@ a.header-link {
     padding: 0px;
 }
 .errorlist li {
-    color: #eaa900;
+    color: #f4424e;
 }
 
 .submission_container{
