@@ -14,6 +14,9 @@ app_type_choices = [(1,"Esports"),
 class SubmitAppForm(forms.ModelForm):
 
     email_address = forms.CharField(label="email_address", required=False, validators = [validate.validate_form_email])
+    member1 = forms.CharField(label="member1", required=False, validators = [validate.validate_non_required_form_email])
+    member2 = forms.CharField(label="member2", required=False, validators = [validate.validate_non_required_form_email])
+    member3 = forms.CharField(label="member3", required=False, validators = [validate.validate_non_required_form_email])
     app_type = forms.ChoiceField(choices=app_type_choices, widget=forms.Select(attrs={'class': "form-control"}))
 
     class Meta:

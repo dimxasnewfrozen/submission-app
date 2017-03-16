@@ -14,3 +14,19 @@ def validate_form_email(value):
 		raise ValidationError(_('* %(value)s is not a valid email address'),
 			params={'value' : value}
 			)
+
+def validate_non_required_form_email(value):
+	if value:
+		try:
+			v = validate_email(value) # validate and get info
+			email = v["email"] # replace with normalized form
+		except EmailNotValidError as e:
+			raise ValidationError(_('* %(value)s is not a valid email address'),
+				params={'value' : value}
+				)
+
+def validate_non_empty(value):
+	if value:
+		return True
+	else:
+		raise ValidationError(_('* field is required!'), params={'value' : value})
