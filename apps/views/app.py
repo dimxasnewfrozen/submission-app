@@ -3,7 +3,38 @@ from django.shortcuts import render, redirect
 from apps.models import Submission
 from apps.forms import SubmitAppForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+"""
+Display a list of apps that have been submitted
+TODO: Remove @login_required() decorator when submissions are live
+"""
+@login_required()
+def apps(request):
+	# Get all of the submissions:
+	submissions = Submission.objects.all()
+
+	context = {'apps': submissions}
+	return render(request, 'app/apps.html', context)
+
+"""
+App details page, showing additional content about the app
+TODO: Remove @login_required() decorator when submissions are live
+"""
+@login_required()
+def app_details(request, app_id):
+
+	"""
+	Get the application for the ID
+	"""
+	try:
+		app = Submission.objects.get(id=app_id)
+	except:
+		return redirect('index')
+
+	context = {'app': app}
+	return render(request, 'app/app_details.html', context)
+	
 """
 A user wants to submit an app
 """
@@ -32,22 +63,8 @@ def submit_app(request):
 	context = {'form': app_form}
 	return render(request, 'app/create.html', context)
 
+"""
+A success page when the user has created their app
+"""
 def success(request):
 	return render(request, 'app/submit_success.html', {})
-
-
-def app_details(request, app_id):
-
-	"""
-	Get the application for the ID
-	"""
-	try:
-		app = Submission.objects.get(id=app_id)
-	except:
-		#messages.error(request, 'Could not find app for that ID')
-		return redirect('index')
-
-
-	context = {'app': app}
-	return render(request, 'app/app_details.html', context)
-	

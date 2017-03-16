@@ -1,51 +1,74 @@
-{% extends "app_base.html" %}
+{% extends "public_base.html" %}
 {% load widget_tweaks %}
+
 {% block content %}
-
-<div class="row-fluid">
-  <div class="col-12 col-sm-12 col-md-12 ">
-      <div class="bs-component">
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h4 class="app_label">{{app.name}}</h4>
-
-          <div class="pull-right">
-            <p><small><i class="fa fa-clock-o" aria-hidden="true"></i> Date Created: {{ app.date_created }} </small></p>
-          </div>
-
-          <div class="app_social_items">
-            <span><i class="fa fa-thumbs-up" aria-hidden="true"></i> 123 likes</span>
+<div class="row-fluid submission_container">
+  <!-- LEFT SIDEBAR -->
+  <div class="col-md-4">
+    <div class="row-fluid">
+      <div class="col-md-12">
+        <div class="bs-component">
+          <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 class="app_label">API Challenge Info </h4>
+                <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
+                <div class="col-md-12 app_buttons">
+                  <a href="https://developer.vainglorygame.com/rules" class="btn btn-primary col-md-12"> Rules </a>
+                  <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Discord </a>
+                </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="panel-body">
-          <div class="row">
+  <!-- RIGHT CONTENT -->
+  <div class="col-lg-8 col-md-8 submission_form">
+    <div class="row-fluid">
+      <div class="col-12 col-sm-12 col-md-12 ">
+          <div class="bs-component">
+            <div class="panel panel-default">
 
-            <div class="col-xs-12 col-md-3 app_buttons">
-              <a href="#" class="col-md-12"><img class="media-object" src="{{ app.thumbnail_url }}" alt="..." width="100%"></a>
+              <div class="panel-heading">
+                <h4 class="app_label">{{app.name}}</h4>
 
-              <a href="{{ app.url }}" class="btn btn-primary col-md-12" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i> View App</a>
-              <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-code" aria-hidden="true"></i> Github </a>
-              <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like App</a>
-            </div>
+                <div class="pull-right">
+                  <p><small><i class="fa fa-clock-o" aria-hidden="true"></i> Date Created: {{ app.date_created }} </small></p>
+                </div>
 
-            <div class="col-md-9">
-
-              <div class="app_content">
-                <p><b>Description</b></p>
-                {{ app.description }}
+                <div class="app_social_items">
+                  <span><i class="fa fa-thumbs-up" aria-hidden="true"></i> 123 likes</span>
+                </div>
               </div>
 
-              <div class="app_content">
-                <b><p>Size of Team:</p></b>
-                <p><img src="{{ user_icon }}" /> 5</p>
-              </div>
+              <div class="panel-body">
+                <div class="row">
 
-            </div>
-          </div>
+                  <div class="col-xs-12 col-md-3 app_buttons">
+                    <a href="#" class="col-md-12"><img class="media-object" src="{{ app.thumbnail_url }}" alt="..." width="100%"></a>
 
-        
+                    <a href="{{ app.url }}" class="btn btn-primary col-md-12" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i> View App</a>
+                    <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-code" aria-hidden="true"></i> Github </a>
+                    <a href="#" class="btn btn-primary col-md-12"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like App</a>
+                  </div>
+
+                  <div class="col-md-9">
+
+                    <div class="app_content">
+                      <p><b>Description</b></p>
+                      {{ app.description }}
+                    </div>
+
+                    <div class="app_content">
+                      <b><p>Size of Team:</p></b>
+                      <p><img src="{{ user_icon }}" /> 5</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div> <!-- panel body -->
+            </div> <!-- panel-default -->
         </div>
       </div>
     </div>

@@ -1,0 +1,54 @@
+{% extends "public_base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="row-fluid submission_container">
+  <!-- LEFT SIDEBAR -->
+  <div class="col-md-4">
+    <div class="row-fluid">
+      <div class="col-md-12">
+          <div class="bs-component">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <h4 class="app_label">API Challenge Info </h4>
+                  <p>The Vainglory API powered by MadGlory is now live! If you’ve got some development chops, you can now create your very own app that uses live Vainglory data to win the respect of your fellow players and even some prizes!</p>
+                  <div class="col-md-12 app_buttons">
+                    <a href="https://developer.vainglorygame.com/rules" class="btn btn-primary col-md-12"> Rules </a>
+                    <a href="https://discord.gg/b6gzh" class="btn btn-primary col-md-12"> Discord </a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="col-lg-8 col-md-8 submission_form">
+        <h4 class="submission_form_headline">Browse application submissions</h4>
+        <table class="table table-hover">
+          {% for app in apps %}
+          <tr>
+            <td>
+              <a href="#">
+              {% if app.thumbnail_url %}
+                <img class="media-object" src="{{ app.thumbnail_url }}" alt="..." width="100px">
+              {% else %}
+                <img class="media-object" src="http://api.thumbalizr.com/?url={{app.url}}/&width=64" alt="...">
+              {% endif %}
+              </a>
+            </td>
+            <td>
+              <h6 class="media-heading"><a href="{% url 'app-details' app.id %}">{{ app.name }}</a></h6>
+              <p>{{ app.description }}</p>
+              <p><small><i class="fa fa-thumbs-up"></i> Likes: 99123 </small></p>
+
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+</div>
+
+
+{% endblock %}
