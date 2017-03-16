@@ -61,10 +61,10 @@
             <div class="col-md-12">
             <label for="app_name">Application type *</label>
               {% if form.app_type.errors %}
-              {{ form.app_type|add_class:"form-control error-border"}}
+              {{ form.app_type|add_class:"form-control error-border select_font "}}
               {{ form.app_type.errors }}
               {% else %}
-              {{ form.app_type|add_class:"form-control"}}
+              {{ form.app_type|add_class:"form-control select_font "}}
               {% endif %}            
             </div>
           </div>
@@ -84,7 +84,12 @@
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_url">Application URL</label>
-            {{ form.app_url|add_class:"form-control" }}
+             {% if form.app_url.errors %}
+              {{ form.app_url|add_class:"form-control error-border"}}
+              {{ form.app_url.errors }}
+              {% else %}
+              {{ form.app_url|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>   
           
@@ -104,18 +109,23 @@
             <div class="col-md-12">
             <label for="description">Application description *</label>
               {% if form.description.errors %}
-              {{ form.description|add_class:"form-control error-border"}}
+              {{ form.description|add_class:"form-control error-border standard_font"}}
               {{ form.description.errors }}
               {% else %}
-              {{ form.description|add_class:"form-control"}}
+              {{ form.description|add_class:"form-control standard_font"}}
               {% endif %}
             </div>
           </div>
 
           <div class="row-fluid">
             <div class="col-md-12">
-            <label for="description">Image thumbnail url</label>
-            {{ form.thumbnail_url|add_class:"form-control" }}
+            <label for="thumbnail_url">Image thumbnail url</label>
+             {% if form.thumbnail_url.errors %}
+              {{ form.thumbnail_url|add_class:"form-control error-border"}}
+              {{ form.thumbnail_url.errors }}
+              {% else %}
+              {{ form.thumbnail_url|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>
 
@@ -123,21 +133,36 @@
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_name">Team member 1's email</label>
-            {{ form.member1|add_class:"form-control" }}
+              {% if form.member1.errors %}
+              {{ form.member1|add_class:"form-control error-border"}}
+              {{ form.member1.errors }}
+              {% else %}
+              {{ form.member1|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>
 
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_name">Team member 2's email</label>
-            {{ form.member2|add_class:"form-control" }}
+              {% if form.member2.errors %}
+              {{ form.member2|add_class:"form-control error-border"}}
+              {{ form.member2.errors }}
+              {% else %}
+              {{ form.member2|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>
 
           <div class="row-fluid">
             <div class="col-md-12">
             <label for="app_name">Team member 3's email</label>
-            {{ form.member3|add_class:"form-control" }}
+              {% if form.member3.errors %}
+              {{ form.member3|add_class:"form-control error-border"}}
+              {{ form.member3.errors }}
+              {% else %}
+              {{ form.member3|add_class:"form-control"}}
+              {% endif %}
             </div>
           </div>
 

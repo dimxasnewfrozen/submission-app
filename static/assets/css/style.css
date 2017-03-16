@@ -755,3 +755,15 @@ a.header-link {
     color: #eaa900;
 
 }
+
+.standard_font
+{
+    font-size:16px;
+    color: #202224;
+}
+
+.select_font
+{
+    font-size:14px;
+    color: #202224;
+}

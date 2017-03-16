@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.forms import ModelForm, Textarea
 from .models import *
 from submissions_app import validate
+from django.core.validators import URLValidator
 
 """
 The different types of applications
@@ -17,7 +18,10 @@ class SubmitAppForm(forms.ModelForm):
     last_name = forms.CharField(label="last_name", required=True)
 
     name = forms.CharField(label="name", required=True)
-    code_url = forms.CharField(label="code_url", required=True)
+    code_url = forms.CharField(label="code_url", required=True, validators=[URLValidator()])
+    app_url = forms.CharField(label="app_url", required=False, validators=[URLValidator()])
+    thumbnail_url = forms.CharField(label="thumbnail_url", required=False, validators=[URLValidator()])
+
     description = forms.CharField(label="description", required=True, widget=forms.Textarea)
 
     email_address = forms.CharField(label="email_address", required=True, validators = [validate.validate_form_email])

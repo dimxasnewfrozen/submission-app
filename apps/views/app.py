@@ -25,7 +25,8 @@ def submit_app(request):
 				messages.warning(request, "Application failed to submit. Make sure the email addresses are valid and you entered the required information.")
 
 			return redirect('submit-app')
-
+		else:
+			print app_form.errors
 	else:
 		app_form = SubmitAppForm()
 
