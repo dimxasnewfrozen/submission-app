@@ -24,7 +24,7 @@
         <form method="post" novalidate="novalidate">
           {% csrf_token %}
           <div class="row-fluid">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
               <label for="app_name">First name *</label>
               {% if form.first_name.errors %}
               {{ form.first_name|add_class:"form-control error-border"}}
@@ -33,7 +33,7 @@
               {{ form.first_name|add_class:"form-control"}}
               {% endif %}            </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
               <label for="app_name">Last name *</label>
               {% if form.last_name.errors %}
               {{ form.last_name|add_class:"form-control error-border"}}
