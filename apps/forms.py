@@ -19,7 +19,7 @@ class SubmitAppForm(forms.ModelForm):
 
     name = forms.CharField(label="name", required=True)
     code_url = forms.CharField(label="code_url", required=True, validators=[URLValidator()])
-    app_url = forms.CharField(label="app_url", required=False, validators=[URLValidator()])
+    app_url = forms.CharField(label="app_url", required=True, validators=[URLValidator()])
     thumbnail_url = forms.CharField(label="thumbnail_url", required=False, validators=[URLValidator()])
 
     description = forms.CharField(label="description", required=True, widget=forms.Textarea)
