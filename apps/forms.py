@@ -62,6 +62,7 @@ class SubmitAppForm(forms.ModelForm):
         self.fields['name'].error_messages['required'] = '* Application name is required!'
         self.fields['description'].error_messages['required'] = '* Application description is required!'
         self.fields['code_url'].error_messages['required'] = '* Github url is required!'
+        self.fields['app_url'].error_messages['required'] = '* Application url is required!'
 
     def save(self, commit=True):
 
