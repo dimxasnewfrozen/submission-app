@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from apps.models import Submission
 from apps.forms import SubmitAppForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 """
 A user wants to submit an app
@@ -33,9 +35,17 @@ def submit_app(request):
 	context = {'form': app_form}
 	return render(request, 'app/create.html', context)
 
+
 def success(request):
 	return render(request, 'app/submit_success.html', {})
 
+@login_required()
+def submissions(request):
+	submissions = Submission.objects.all()
+	#submissions = Submission.objects.all().order_by('?')
+
+	context = {'submissions': submissions}
+	return render(request, 'app/submissions.html', context)
 
 def app_details(request, app_id):
 

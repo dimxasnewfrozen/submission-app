@@ -33,9 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'apps.apps.AppsConfig',
     'django.contrib.admin',
@@ -44,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
-
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +57,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'submissions_app.urls'
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = '/submissions'
 LOGIN_URL = '/login/'
 
 TEMPLATES = [
