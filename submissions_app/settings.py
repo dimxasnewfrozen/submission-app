@@ -154,3 +154,5 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

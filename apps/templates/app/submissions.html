@@ -2,48 +2,58 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="row submission_container">
-  <!-- RIGHT CONTENT -->
-  <div class="col-lg-12 col-md-12 submission_form">
+<div class="row">
+    <div class="col-lg-12 col-md-12">
 
-        <h4 class="submission_form_headline">Submissions</h4>
+      <div class="bs-component">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h5>Submissions</h5></div>
+          <div class="panel-body">
 
-        <table class="table">
-        	{% for submission in submissions %}
-        	<tr>
-        		<td style="width:10%;">
-        			{% if submission.thumbnail_url %}
-        				<img src="{{ submission.thumbnail_url }}" />
-        			{% endif %}
-        		</td>
-        		<td>
-        			<h6><a href="{{ submission.app_url }}" target="_blank">{{ submission.name }}</a></h6>
-        			{{ submission.description }}
+                {% for app in submissions %}
+                    <div class="media" style="border-bottom:1px solid #737373;">
+                        <div class="col-md-1 col-sm-1">
+                            <a href="{{ app.app_url }}" target="_blank">
+                              {% if app.thumbnail_url %}
+                                <img class="" src="{{ app.thumbnail_url }}" onError="this.onerror=null;this.src='https://madglory.com/assets/img/games/card-vainglory.jpg';">
+                              {% else %}
+                                <img src="https://madglory.com/assets/img/games/card-vainglory.jpg"/>
+                              {% endif %}
+                            </a>
+                        </div>
 
-        			<p style="margin:0px; padding:5px; padding-left:0px; ">
-        				{% if submission.app_type == 0 %}
-        					<b>NA</b>
-        				{% endif %}      
+                        <div class="col-md-11 col-sm-11">
+                            <h4 class="media-heading"><a href="{{ app.app_url }}" target="_blank">{{ app.name }}</a></h4>
+                            {{ app.description }}
+                            <br/>
+                            <p style="padding-left:0px;"><a href="{{app.code_url}}">{{ app.code_url }}</a></p>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
 
-        				{% if submission.app_type == 1 %}
-        					<b>Esports</b>
-        				{% endif %}        				
 
-        				{% if submission.app_type == 2 %}
-        					<b>Community Related (ie: stats)</b>
-        				{% endif %}
+                <!-- USER LIST PAGINATION -->
+                <ul class="pagination pagination-sm">
+                  {% for pg in page_range %}
+                    {% if submissions.number == pg %}
+                      <li class="active" ><a href ="?page={{ pg }}" >{{pg}}</a></li>
+                      {% else %}
+                      <li><a href ="?page={{ pg }}">{{pg}}</a></li>
+                    {% endif %}
+                  {% endfor %}
 
-        				{% if submission.app_type == 3 %}
-        					<b>For laughs and giggles</b>
-        				{% endif %}
-        			</p>
-        			<p style="margin:0px; padding:5px; padding-left:0px; "><a href="{{ submission.code_url}}" target="_blank">{{ submission.code_url}}</a></p>
-                    <p style="margin:0px; padding:5px; padding-left:0px; ">{{ submission.email_address }}</p>
-        		</td>
-        	</tr>
-        	{% endfor %}
-        </table>
+                  {% if submissions.has_next %}
+                    <li><a href="?page={{submissions.next_page_number}}">Next </a>
+                  {% endif %}
+                </ul>
+                
+          </div>
+        </div>
       </div>
+
+
+    </div>
 </div>
 
 
