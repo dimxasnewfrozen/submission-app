@@ -54,7 +54,7 @@ def submissions(request):
 		request.session['current_order'] = random.choice(order_by)
 		order = request.session['current_order']
 
-	submissions_list = Submission.objects.all().order_by('name')
+	submissions_list = Submission.objects.all().order_by(order)
 
 	num_of_entries = 5
 
