@@ -43,7 +43,7 @@ def submit_app(request):
 def success(request):
 	return render(request, 'app/submit_success.html', {})
 
-@login_required()
+#@login_required()
 def submissions(request):
 
 	request.session.set_expiry(0)
