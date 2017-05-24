@@ -29,7 +29,8 @@ config.read('%s/config.txt' % (BASE_DIR))
 SECRET_KEY = '2ht25$z2)7&j8norr**am()(_6=b0$aqvel$3v3%x!a9ey3oxw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
