@@ -32,7 +32,7 @@ SECRET_KEY = '2ht25$z2)7&j8norr**am()(_6=b0$aqvel$3v3%x!a9ey3oxw'
 #DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
